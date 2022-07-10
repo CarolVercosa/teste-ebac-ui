@@ -11,18 +11,24 @@ describe('Funcionalidade página de produtos', () => {
             //.first()
             //.last()
             //.eq(3)
-            .contains('[37706558] Produto Lgc2')
+            .contains('Ariel Roll Sleeve Sweatshirt')
             .click()
+
     });
 
     it.only('Deve adicionar um produto ao carrinho', () => {
+        var quantidade = 3
+
         cy.get('[class="product-block grid"]')
-            .contains('[37706558] Produto Lgc2')
-            .click()
-            cy.get('.single_add_to_cart_button').click()
-            cy.get('.dropdown-toggle > .mini-cart-items') .should('contain', 1)
-            cy.get('.woocommerce-message').should('contain', '“[37706558] Produto Lgc2” foi adicionado no seu carrinho.')
+            .contains('Argus All-Weather Tank').click()
+        cy.get('.button-variable-item-M').click()
+        cy.get('.button-variable-item-Gray').click()
+        cy.get('.input-text').clear().type(quantidade)
+        cy.get('.single_add_to_cart_button').click()
 
-});
+        cy.get('.dropdown-toggle > .mini-cart-items').should('contain' , quantidade)
+        cy.get('.woocommerce-message').should('contain',  quantidade + ' × “Argus All-Weather Tank” foram adicionados no seu carrinho.')
 
-});
+    });
+
+})

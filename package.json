@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/CarolVercosa/teste-ebac-ui#readme",
   "devDependencies": {
-    "cypress": "^10.1.0"
+    "cypress": "^13.7.1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1"
   }
 }
